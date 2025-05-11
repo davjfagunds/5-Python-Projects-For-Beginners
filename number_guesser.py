@@ -1,35 +1,35 @@
 import random
 
-top_of_range = input("Type a number: ")
+limite_superior = input("Digite um número: ")
 
-if top_of_range.isdigit():
-    top_of_range = int(top_of_range)
+if limite_superior.isdigit():
+    limite_superior = int(limite_superior)
 
-    if top_of_range <= 0:
-        print('Please type a number larger than 0 next time.')
+    if limite_superior <= 0:
+        print('Por favor, digite um número maior que 0 da próxima vez.')
         quit()
 else:
-    print('Please type a number next time.')
+    print('Por favor, digite um número da próxima vez.')
     quit()
 
-random_number = random.randint(0, top_of_range)
-guesses = 0
+numero_aleatorio = random.randint(0, limite_superior)
+tentativas = 0
 
 while True:
-    guesses += 1
-    user_guess = input("Make a guess: ")
-    if user_guess.isdigit():
-        user_guess = int(user_guess)
+    tentativas += 1
+    palpite_usuario = input("Digite um palpite: ")
+    if palpite_usuario.isdigit():
+        palpite_usuario = int(palpite_usuario)
     else:
-        print('Please type a number next time.')
+        print('Por favor, digite um número da próxima vez.')
         continue
 
-    if user_guess == random_number:
-        print("You got it!")
+    if palpite_usuario == numero_aleatorio:
+        print("Você acertou!")
         break
-    elif user_guess > random_number:
-        print("You were above the number!")
+    elif palpite_usuario > numero_aleatorio:
+        print("Seu palpite foi maior que o número!")
     else:
-        print("You were below the number!")
+        print("Seu palpite foi menor que o número!")
 
-print("You got it in", guesses, "guesses")
+print("Você acertou em", tentativas, "tentativas")
